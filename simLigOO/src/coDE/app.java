@@ -26,7 +26,11 @@ public class app {
         map.put(c2.getPos(), c2);
         
         //Testes de envio
-        c1.enviaMSG(m1, c2);
+        try{
+            c1.enviaMSG(m1, c2);
+        } catch(Exception e){
+            System.out.println("Erro: " + e.getMessage());
+        }
         //func mais prox = sqrt(pow(x1-x2)+pow(y1-y2))
     }
     

@@ -23,7 +23,9 @@ public class Celular {
         return pos;
     }    
     
-    public boolean enviaMSG(Mensagem m, Celular c){
-        
+    public boolean enviaMSG(Mensagem m, Celular c) throws{
+        if(m.verificaIntegridade()){
+            
+        }
     }
 }

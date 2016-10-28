@@ -28,4 +28,8 @@ public class Mensagem {
     public void setPos(Posicao pos) {
         this.pos = pos;
     }
+    
+    public boolean verificaIntegridade(){
+        if(conteudo != null)
+    }
 }
