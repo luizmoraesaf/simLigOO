@@ -30,12 +30,20 @@ public class Antena {
         } else verificador = false;
         
         if(verificador){
-            
+            if(this.central.pesquisaEenviaCel(m, n)){
+                return true;
+            }
         }
+        return false;
     }
     
-    public boolean verificaEenviaCel(){
-        
+    public boolean verificaEenviaCel(Mensagem m, Celular c){
+        if(c.maisProx.equals(this)){
+            if(c.recebe(m, m.getEnvia())){
+                return true;
+            }
+        }
+        return false;
     }
 
     public Posicao getPos() {

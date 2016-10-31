@@ -19,7 +19,7 @@ public class app {
         Celular c1 = new Celular(new Posicao(1,1), 88888888, a1);
         Celular c2 = new Celular(new Posicao(1,2), 99999999, a1);
         Mensagem m1 = new Mensagem("droga", c1, 99999999);
-        System.out.println("" + m1.logMensagem());
+        //System.out.println("" + m1.logMensagem());
         
         //Inclusão dos celulares no hashmap
         map.put(a1.getPos(), a1);
@@ -28,7 +28,9 @@ public class app {
         
         //Testes de envio
         try{
-            c1.envia(m1, c2);
+            c1.envia(m1, 99999999);
+            Mensagem teste = c2.caixaEntrada.get(0);
+            System.out.println(" " + teste.logMensagem());
         } catch(Exception e){
             System.out.println("Erro: " + e.getMessage());
         }

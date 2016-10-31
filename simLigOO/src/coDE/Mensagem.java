@@ -26,6 +26,10 @@ public class Mensagem {
         return "LogMensagem{" + "conteudo=" + this.conteudo + ", envia=" + envia.getNumero() + ", recebe=" + recebe + '}';
     }
 
+    public int getEnvia() {
+        return this.envia.getNumero();
+    }
+
     public void setPos(Posicao pos) {
         this.pos = pos;
     }

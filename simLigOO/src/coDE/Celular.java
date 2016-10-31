@@ -17,6 +17,8 @@ public class Celular {
         this.numero = n;
         this.maisProx = a;
     }
+    
+    public Celular(){}
 
     public int getNumero() {
         return numero;
@@ -37,9 +39,10 @@ public class Celular {
     }
     
     public boolean recebe(Mensagem m, int n){
-            if(this.maisProx.verificaEenvia(m,n)){
-                return true;
-            } else return false;            
+        if(this.caixaEntrada.add(m)){
+            return true;
+        }
+        return false;
     }
     
 }

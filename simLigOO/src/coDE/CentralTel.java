@@ -21,12 +21,13 @@ public class CentralTel {
         } else return false;
     }
     
-    public boolean pesquisaEenviaCel(int n){
-        Iterator i = this.pilhaAtend.iterator();
-        while(i.hasNext()){
-            Celular temp = (Celular) i.next();
+    public boolean pesquisaEenviaCel(Mensagem m, int n){
+        
+        for(int i=0; i==pilhaAtend.size()-1; i++){
+            Celular temp =  new Celular();
+            temp = pilhaAtend.get(i);
             if(temp.numero == n){
-                if(temp.getAntena().verificaEenviaCel()){
+                if(temp.getAntena().verificaEenviaCel(m, temp)){
                     return true;
                 }
             }
