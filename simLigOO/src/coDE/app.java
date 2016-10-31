@@ -14,10 +14,11 @@ public class app {
         HashMap<Posicao,Object> map = new HashMap<Posicao,Object>();
         
         //Area de testes
-        Antena a1 = new Antena(new Posicao(2,3));
+        CentralTel ct1 = new CentralTel(new Posicao(5,3));
+        Antena a1 = new Antena(new Posicao(2,3), ct1);
         Celular c1 = new Celular(new Posicao(1,1), 88888888, a1);
         Celular c2 = new Celular(new Posicao(1,2), 99999999, a1);
-        Mensagem m1 = new Mensagem("droga", c1, c2);
+        Mensagem m1 = new Mensagem("droga", c1, 99999999);
         System.out.println("" + m1.logMensagem());
         
         //Inclusão dos celulares no hashmap
@@ -27,7 +28,7 @@ public class app {
         
         //Testes de envio
         try{
-            c1.enviaMSG(m1, c2);
+            c1.envia(m1, c2);
         } catch(Exception e){
             System.out.println("Erro: " + e.getMessage());
         }

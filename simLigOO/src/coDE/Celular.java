@@ -1,5 +1,7 @@
 package coDE;
 
+import java.util.ArrayList;
+
 /**
  *
  * @author lmoraes
@@ -8,6 +10,7 @@ public class Celular {
     protected Posicao pos;
     protected int numero;
     protected Antena maisProx;
+    protected ArrayList<Mensagem> caixaEntrada;
     
     public Celular(Posicao p, int n, Antena a){
         this.pos = p;
@@ -22,8 +25,21 @@ public class Celular {
     public Posicao getPos() {
         return pos;
     }    
-    
-    public boolean enviaMSG(Mensagem m, Celular c) throws{
-        
+
+    public Antena getAntena() {
+        return maisProx;
     }
+    
+    public boolean envia(Mensagem m, int n){
+            if(this.maisProx.verificaEenviaCentral(m,n)){
+                return true;
+            } else return false;            
+    }
+    
+    public boolean recebe(Mensagem m, int n){
+            if(this.maisProx.verificaEenvia(m,n)){
+                return true;
+            } else return false;            
+    }
+    
 }
