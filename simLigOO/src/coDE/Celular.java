@@ -24,5 +24,6 @@ public class Celular {
     }    
     
     public boolean enviaMSG(Mensagem m, Celular c) throws{
+        
     }
 }

@@ -5,6 +5,7 @@ package coDE;
  * @author lmoraes
  */
 public class Mensagem {
+    protected final int status = 0;         //0-enviando, 1-erro, 2-enviada
     protected String conteudo;
     protected Celular envia;
     protected Celular recebe;
