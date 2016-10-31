@@ -1,6 +1,5 @@
 package coDE;
 
-import java.util.Iterator;
 import java.util.Stack;
 
 /**
@@ -21,17 +20,19 @@ public class CentralTel {
         } else return false;
     }
     
-    public boolean pesquisaEenviaCel(Mensagem m, int n){
-        
+    public String pesquisaEenviaCel(Mensagem m, int n){
+        String res;
         for(int i=0; i==pilhaAtend.size()-1; i++){
             Celular temp =  new Celular();
             temp = pilhaAtend.get(i);
             if(temp.numero == n){
-                if(temp.getAntena().verificaEenviaCel(m, temp)){
-                    return true;
-                }
-            }
+                res = temp.getAntena().verificaEenviaCel(m, temp);
+                if(res.equalsIgnoreCase("Enviada com sucesso")){
+                    return res;
+                } else res = "Erro ao pesquisar e enviar para antena!";
+            } else res = "Erro ao pesquisar no Stack Central!";
         }
-        return false;
+        res = "Erro no iterador de pesquisa da Central!";
+        return res;
     }
 }

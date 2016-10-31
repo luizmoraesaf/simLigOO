@@ -38,11 +38,12 @@ public class Celular {
             } else return false;            
     }
     
-    public boolean recebe(Mensagem m, int n){
+    public String recebe(Mensagem m, int n){
+        String res = "Enviada com sucesso";
         if(this.caixaEntrada.add(m)){
-            return true;
-        }
-        return false;
+            return res;
+        } else res = "Erro ao adicionar na caixa!";
+        return res;
     }
     
 }

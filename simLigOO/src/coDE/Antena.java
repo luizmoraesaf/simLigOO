@@ -37,13 +37,15 @@ public class Antena {
         return false;
     }
     
-    public boolean verificaEenviaCel(Mensagem m, Celular c){
+    public String verificaEenviaCel(Mensagem m, Celular c){
+        String res = "Erro ao verificar telefone na antena!";
         if(c.maisProx.equals(this)){
-            if(c.recebe(m, m.getEnvia())){
-                return true;
-            }
-        }
-        return false;
+            res = c.recebe(m, m.getEnvia());
+            if(res.equalsIgnoreCase("Enviada com sucesso")){
+                return res;
+            } else res = "Erro ao enviar mensagem para celular!";
+        } else res = "Erro verificação da mensagem!";
+        return res;
     }
 
     public Posicao getPos() {
