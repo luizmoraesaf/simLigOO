@@ -23,6 +23,7 @@ public class app {
         Mensagem m1 = new Mensagem("droga", c1, c2);
         ArrayList<Antena> antenas = new ArrayList<Antena>();
         ArrayList<Celular> celulares = new ArrayList<Celular>();
+        ArrayList<Mensagem> mensagens = new ArrayList<Mensagem>();
         antenas.add(a1);
         celulares.add(c1);
         celulares.add(c2);
@@ -33,12 +34,13 @@ public class app {
                 objAntena.beam(cont, log);
             }
             for(Celular objCelular : celulares){
-                objCelular.beam(cont, log);
+                for(Mensagem m : mensagens){
+                    if(m.getEnvia().equals(objCelular)){
+                        objCelular.beam(cont, log);
+                    }
+                }
             }
             cont.decrementa();
         }
-
-        //func mais prox = sqrt(pow(x1-x2)+pow(y1-y2))
-    }
-    
+    }    
 }

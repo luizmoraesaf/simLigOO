@@ -26,14 +26,11 @@ public class Celular {
         return maisProx;
     }
     
-    public boolean envia(Mensagem m, int n){
-            if(this.maisProx.verificaEenviaCentral(m,n)){
-                return true;
-            } else return false;            
+    public void beam(Contador cont, SystemLogs log){
+        
     }
     
     public void recebe(Mensagem m){
         caixaEntrada.add(m);
-    }
-    
+    }    
 }
