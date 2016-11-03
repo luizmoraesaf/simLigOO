@@ -10,6 +10,7 @@ public class Celular {
     protected int numero;
     protected Antena maisProx;
     protected ArrayList<Mensagem> caixaEntrada;
+    protected ArrayList<Mensagem> caixaSaida;
     
     public Celular(int n, Antena a){
         this.numero = n;
