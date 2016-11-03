@@ -8,12 +8,10 @@ import java.math.*;
  * @author lmoraes
  */
 public class Antena {
-    protected Posicao pos;
     protected CentralTel central;
     protected ArrayList<Mensagem> listaMsg = new ArrayList<Mensagem>();
     
-    public Antena(Posicao p, CentralTel ct){
-        this.pos = p;
+    public Antena( CentralTel ct){
         this.central = ct;
     }
     
@@ -30,9 +28,9 @@ public class Antena {
         } else verificador = false;
         
         if(verificador){
-            if(this.central.pesquisaEenviaCel(m, n)){
-                return true;
-            }
+            //if(this.central.pesquisaEenviaCel(m, n)){
+            //    return true;
+            //}
         }
         return false;
     }
@@ -46,9 +44,5 @@ public class Antena {
             } else res = "Erro ao enviar mensagem para celular!";
         } else res = "Erro verificação da mensagem!";
         return res;
-    }
-
-    public Posicao getPos() {
-        return pos;
     }
 }

@@ -7,13 +7,11 @@ import java.util.ArrayList;
  * @author lmoraes
  */
 public class Celular {
-    protected Posicao pos;
     protected int numero;
     protected Antena maisProx;
     protected ArrayList<Mensagem> caixaEntrada;
     
-    public Celular(Posicao p, int n, Antena a){
-        this.pos = p;
+    public Celular(int n, Antena a){
         this.numero = n;
         this.maisProx = a;
     }
@@ -23,10 +21,6 @@ public class Celular {
     public int getNumero() {
         return numero;
     }
-
-    public Posicao getPos() {
-        return pos;
-    }    
 
     public Antena getAntena() {
         return maisProx;

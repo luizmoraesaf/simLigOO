@@ -7,12 +7,7 @@ import java.util.Stack;
  * @author lmoraes
  */
 public class CentralTel {
-    protected Posicao pos;
     protected Stack<Celular> pilhaAtend = new Stack<Celular>();
-    
-    public CentralTel(Posicao p){
-        this.pos = p;
-    }
     
     public boolean adiciona(Celular c){
         if(this.pilhaAtend.add(c)){

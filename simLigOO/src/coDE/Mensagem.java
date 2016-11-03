@@ -9,13 +9,11 @@ public class Mensagem {
     protected String conteudo;
     protected Celular envia;
     protected int recebe;
-    protected Posicao pos;
     
     public Mensagem(String c, Celular e, int r){
         this.conteudo = c;
         this.envia = e;
         this.recebe = r;
-        this.pos = e.getPos();
     }
 
     public void showMsg(){
@@ -28,9 +26,5 @@ public class Mensagem {
 
     public int getEnvia() {
         return this.envia.getNumero();
-    }
-
-    public void setPos(Posicao pos) {
-        this.pos = pos;
     }
 }
