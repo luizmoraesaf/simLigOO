@@ -7,27 +7,24 @@ import java.util.Stack;
  * @author lmoraes
  */
 public class CentralTel {
-    protected Stack<Celular> pilhaAtend = new Stack<Celular>();
+    protected Stack<Mensagem> pilhaAtend = new Stack<Mensagem>();
     
-    public boolean adiciona(Celular c){
-        if(this.pilhaAtend.add(c)){
+    public boolean adiciona(Mensagem m){
+        if(this.pilhaAtend.add(m)){
             return true;
         } else return false;
     }
-    
-    public String pesquisaEenviaCel(Mensagem m, int n){
-        String res;
-        for(int i=0; i==pilhaAtend.size()-1; i++){
-            Celular temp =  new Celular();
-            temp = pilhaAtend.get(i);
-            if(temp.numero == n){
-                res = temp.getAntena().verificaEenviaCel(m, temp);
-                if(res.equalsIgnoreCase("Enviada com sucesso")){
-                    return res;
-                } else res = "Erro ao pesquisar e enviar para antena!";
-            } else res = "Erro ao pesquisar no Stack Central!";
-        }
-        res = "Erro no iterador de pesquisa da Central!";
-        return res;
+
+    public boolean beam(Contador cont){
+        Mensagem tempm;
+        tempm = pilhaAtend.pop();
+        if(tempm!=null){
+            Celular tempc;
+            tempc = tempm.getRecebe();
+            if(tempc.getAntena().addMsg(tempm)){
+                return true;
+            }
+        } else return false;
+        return false;
     }
 }
