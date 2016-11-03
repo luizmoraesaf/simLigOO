@@ -22,4 +22,12 @@ public class Antena {
            return true;
         } else return false;
     }
+    
+    public void beam(Contador cont, SystemLogs log){
+        for(Mensagem m : listaMsg){
+            Celular tempc = m.getRecebe();
+            tempc.recebe(m);
+            log.addLog("Mensagem entregue com sucesso!");
+        }
+    }
 }

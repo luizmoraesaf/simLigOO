@@ -31,4 +31,9 @@ public class Mensagem {
     public Celular getRecebe() {
         return recebe;
     }
+    
+    public Mensagem delivStatus(){
+        this.conteudo += "* ERRO NA ENTREGA *";
+        return this;
+    }
 }
