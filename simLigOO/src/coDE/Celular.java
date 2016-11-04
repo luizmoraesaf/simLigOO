@@ -28,7 +28,8 @@ public class Celular {
     }
     
     public void beam(Contador cont, SystemLogs log){
-        
+        Mensagem tempm;
+        tempm = caixaSaida.remove(cont.getCont()-1);
     }
     
     public void recebe(Mensagem m){

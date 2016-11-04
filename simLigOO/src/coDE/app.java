@@ -34,11 +34,7 @@ public class app {
                 objAntena.beam(cont, log);
             }
             for(Celular objCelular : celulares){
-                for(Mensagem m : mensagens){
-                    if(m.getEnvia().equals(objCelular)){
-                        objCelular.beam(cont, log);
-                    }
-                }
+                objCelular.beam(cont, log);
             }
             cont.decrementa();
         }
