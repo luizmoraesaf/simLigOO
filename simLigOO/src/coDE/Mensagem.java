@@ -40,4 +40,8 @@ public class Mensagem {
     public void setStatus(int status) {
         this.status = status;
     }
+
+    public int getStatus() {
+        return status;
+    }
 }

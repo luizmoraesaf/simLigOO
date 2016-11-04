@@ -37,6 +37,7 @@ public class Celular {
                 log.addLog("Mensagem enviada para antena!");
             } else {
                 tempm.setStatus(1);
+                this.recebe(tempm);
                 log.addLog("Erro ao enviar para antena! Stack antena pode deve cheio!");
             }
         } else log.addLog("Stack do celular vazio!");

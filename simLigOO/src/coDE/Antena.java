@@ -1,8 +1,8 @@
 package coDE;
 
 import java.util.Queue;
-import org.apache.commons.collections4.queue.CircularFifoQueue;
 import java.math.*;
+import java.util.PriorityQueue;
 
 
 /**
@@ -11,7 +11,7 @@ import java.math.*;
  */
 public class Antena {
     protected CentralTel central;
-    Queue<Mensagem> listaMsg = new CircularFifoQueue<Mensagem>(10);
+    Queue<Mensagem> listaMsg = new PriorityQueue<Mensagem>(10);
     
     public Antena( CentralTel ct){
         this.central = ct;
@@ -25,9 +25,16 @@ public class Antena {
     
     public void beam(Contador cont, SystemLogs log){
         for(Mensagem m : listaMsg){
-            Celular tempc = m.getRecebe();
-            tempc.recebe(m);
-            log.addLog("Mensagem entregue com sucesso!");
+            if(m.getStatus() == 3){
+                Celular tempc = m.getRecebe();
+                tempc.recebe(m);
+                log.addLog("Mensagem entregue com sucesso!");
+            } else if(m.getStatus() == 2){
+                if(central.adiciona(m)){
+                    log.addLog("Mensagem enviada para central!");
+                    listaMsg.
+                } else log.addLog("Erro ao adicionar na Stack da central!");
+            }
         }
     }
 }
