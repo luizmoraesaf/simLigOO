@@ -32,7 +32,6 @@ public class Antena {
             } else if(m.getStatus() == 2){
                 if(central.adiciona(m)){
                     log.addLog("Mensagem enviada para central!");
-                    listaMsg.
                 } else log.addLog("Erro ao adicionar na Stack da central!");
             }
         }
