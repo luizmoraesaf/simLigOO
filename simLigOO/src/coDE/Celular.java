@@ -1,6 +1,7 @@
 package coDE;
 
 import java.util.ArrayList;
+import java.util.Stack;
 
 /**
  *
@@ -10,7 +11,7 @@ public class Celular {
     protected int numero;
     protected Antena maisProx;
     protected ArrayList<Mensagem> caixaEntrada;
-    protected ArrayList<Mensagem> caixaSaida;
+    protected Stack<Mensagem> caixaSaida;
     
     public Celular(int n, Antena a){
         this.numero = n;
@@ -29,7 +30,16 @@ public class Celular {
     
     public void beam(Contador cont, SystemLogs log){
         Mensagem tempm;
-        tempm = caixaSaida.remove(cont.getCont()-1);
+        tempm = caixaSaida.pop();
+        if(tempm != null){
+            tempm.setStatus(2);
+            if(this.getAntena().addMsg(tempm)){
+                log.addLog("Mensagem enviada para antena!");
+            } else {
+                tempm.setStatus(1);
+                log.addLog("Erro ao enviar para antena! Stack antena pode deve cheio!");
+            }
+        } else log.addLog("Stack do celular vazio!");
     }
     
     public void recebe(Mensagem m){

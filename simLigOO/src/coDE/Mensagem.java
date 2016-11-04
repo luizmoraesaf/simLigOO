@@ -5,7 +5,7 @@ package coDE;
  * @author lmoraes
  */
 public class Mensagem {
-    protected final int status = 0;         //0-enviando, 1-erro, 2-enviada
+    protected int status = 0;         //0 -criada, 1 -erro, 2 -enviando antena, 3 -enviando celular
     protected String conteudo;
     protected Celular envia;
     protected Celular recebe;
@@ -35,5 +35,9 @@ public class Mensagem {
     public Mensagem delivStatus(){
         this.conteudo += "* ERRO NA ENTREGA *";
         return this;
+    }
+
+    public void setStatus(int status) {
+        this.status = status;
     }
 }
